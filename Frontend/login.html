@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<style type="text/css">
+    #ab1:hover {
+        cursor: pointer;
+    }
+    
+    .top {
+        margin-top: 20px;
+        align-items: center;
+    }
+    
+    body {
+        background-image: url(/Images/3.jpg);
+        height: 150px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .card-img-top {
+        height: 250px;
+        width: 30;
+    }
+    
+    .form.group {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="container" style="width: 400px;margin-top: 50px">
+        <div class="card">
+            <img src="/Images/2.jpg" class="card-img-top">
+            <div class="card-body">
+                <form class="form.group" action="func.php" method="post">
+                    <label>Username:</label><br>
+                    <input type="text" name="Username" class="form.control" placeholder="Enter Username"><br>
+                    <label>Password:</label><br>
+                    <input type="password" name="password" class="form.control" placeholder="Enter password"><br>
+                    <label>Confirm Password:</label><br>
+                    <input type="password" name="confpassword" class="form.control" placeholder="Confirm password"><br>
+                    <div class="top">
+                        <button class="btn btn-primary" name="login_submit" id="login">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        document.getElementById("login").onclick = function() {
+            location.href = "index.html";
+        };
+    </script>
+    <script script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</body>
+
+</html>
