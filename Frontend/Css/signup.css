@@ -1,0 +1,44 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-image: url(/Images/12.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-size: 40px;
+    color: white;
+    margin-top: 250px;
+}
+
+p {
+    font-size: 17px;
+    color: white;
+    /* margin-top: 260px; */
+}
+
+h3 {
+    font-size: 25px;
+    color: white;
+}
+
+.pencil {
+    font-size: 35px;
+}
+
+.col-left {
+    padding-left: 100px;
+    float: left;
+}
+
+aside {
+    float: right;
+    /* width: 90%; */
+    padding-right: 15px;
+    margin-right: 15px;
+}
