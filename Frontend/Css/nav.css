@@ -64,8 +64,7 @@ nav {
     color: #fff;
 }
 
-
-/* nav:before {
+nav:before {
     position: absolute;
     content: '';
     border-top: 10px solid #333;
@@ -85,4 +84,4 @@ nav:after {
     border-bottom: 10px solid transparent;
     top: 100%;
     right: 0;
-} */
+}
