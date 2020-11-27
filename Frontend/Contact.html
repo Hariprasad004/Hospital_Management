@@ -13,6 +13,10 @@
             font-size: 25px;
             font-weight: bold;
         }
+        
+        body {
+            background-image: url(/Images/7.jpg);
+        }
     </style>
 </head>
 
@@ -31,9 +35,30 @@
             </ul>
         </nav>
     </div>
-    <div>
-        <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
-            Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+    <div class="contact-form">
+        <form>
+            <u><h1>Contact Us</h1></u>
+            <div class="txtb">
+                <strong><label>Full Name :</label></strong>
+                <input type="text" name="name" value="" placeholder="Enter Your Name" required>
+            </div>
+
+            <div class="txtb">
+                <strong><label>Email :</label></strong>
+                <input type="email" name="email" value="" placeholder="Enter Your Email" required>
+            </div>
+
+            <div class="txtb">
+                <strong><label>Phone Number :</label></strong>
+                <input type="text" name="phone" value="" placeholder="Enter Your Phone Number" required>
+            </div>
+
+            <div class="txtb">
+                <strong><label>Message :</label></strong>
+                <textarea name="msg" placeholder="Enter Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn" name="send"><b>Send</b></button>
+        </form>
     </div>
 </body>
 

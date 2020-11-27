@@ -16,13 +16,15 @@
         }
         
         #submit {
-            margin-left: 100px;
+            margin-left: 170px;
             background-color: red;
             font-size: 16px;
             font-weight: bold;
             width: 70px;
             height: 40px;
             color: white;
+            box-sizing: border-box;
+            border-radius: 8px;
         }
         
         body {
@@ -38,13 +40,18 @@
         }
         
         .container {
-            padding: 25px 25px;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            padding-left: 60px;
             background-color: steelblue;
-            margin-left: 600px;
+            margin-left: 450px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            box-shadow: 0 0 20px #000000b3;
         }
         
         #txt {
-            width: 260px;
+            width: 400px;
             height: 30px;
             font-size: 20px;
             font-family: 'Times New Roman', Times, serif;
@@ -87,9 +94,9 @@
             </ul>
         </nav>
     </div>
-    <div class="container" style="width: 400px;margin-top: 10px">
+    <div class="container" style="width: 600px;margin-top: 10px">
         <form class="form.group" action="#" method="post">
-            <h2 style="text-align: center"><u>Patient Info</u></h2><br>
+            <h2 style="padding-left: 170px;"><u>Patient Info</u></h2><br>
             <p><b>Name:</b><br>
                 <input type="text" name="name" value="" id="txt" placeholder="Enter name" required> </p><br>
             <p><b>Age:</b><br>
@@ -99,10 +106,10 @@
                 <input type="tel" name="phone" pattern="[0-9]{10}" id="txt" placeholder="Enter phone num" required> </p>
             <br>
             <p><b>Address:</b><br>
-                <textarea name="address" rows="3" cols="23" id="txtarea" placeholder="Enter Address" required></textarea></p>
+                <textarea name="address" rows="3" cols="37" id="txtarea" placeholder="Enter Address" required></textarea></p>
             <br>
             <p><b>Description:</b><br>
-                <textarea name="description" rows="3" cols="23" id="txtarea" placeholder="Enter description" required></textarea></p>
+                <textarea name="description" rows="3" cols="37" id="txtarea" placeholder="Enter description" required></textarea></p>
             <br>
             <button type="submit" name="add" id="submit">Add</button>
             <a id="list" href="Patient_list.html ">List?</a>
