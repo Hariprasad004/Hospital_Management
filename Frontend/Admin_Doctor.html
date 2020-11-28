@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="Css/nav.css">
+    <style type="text/css">
+        * {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        #submit:hover {
+            cursor: pointer;
+        }
+        
+        #submit {
+            margin-left: 170px;
+            background-color: red;
+            font-size: 16px;
+            font-weight: bold;
+            width: 70px;
+            height: 40px;
+            color: white;
+            box-sizing: border-box;
+            border-radius: 8px;
+        }
+        
+        body {
+            background-image: url(/Images/16.png);
+            /* height: 150px; */
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: rgb(218, 241, 10);
+        }
+        
+        p {
+            font-size: 20px;
+            padding-left: 35px;
+        }
+        
+        .container {
+            padding-top: 25px;
+            padding-bottom: 25px;
+            padding-left: 60px;
+            /* background-color: rgb(247, 146, 53); */
+            background-image: url(/Images/11.jpg);
+            margin-left: 450px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            box-shadow: 0 0 20px #000000b3;
+        }
+        
+        #txt {
+            width: 400px;
+            height: 30px;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 7px;
+            background-color: silver;
+        }
+        
+        #txtarea {
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 7px;
+            background-color: silver;
+        }
+        
+         ::placeholder {
+            color: black;
+        }
+        
+        #list {
+            padding-left: 30px;
+            font-weight: bold;
+            font-size: 20px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <nav>
+            <div class="logo">
+                <h3 style="color: Yellow;">HOSPITAL MANAGEMENT</h3>
+            </div>
+            <ul class="menu-area">
+                <li><a href="Admin_Home.html">Home</a></li>
+                <li><a href="Admin_Patient.html">Patients</a></li>
+                <li class="active"><a href="#">Doctors</a></li>
+                <li><a href="Admin_Receptionist.html">Receptionists</a></li>
+                <li><a href="Admin_About.html">About</a></li>
+                <li><a href="Admin_Contact.html">Contact Us</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container" style="width: 600px;margin-top: 10px">
+        <form class="form.group" action="#" method="post">
+            <h2 style="padding-left: 170px;"><u>Doctor Info</u></h2><br>
+            <p><b>Name:</b><br>
+                <input type="text" name="name" value="" id="txt" placeholder="Enter name" required> </p><br>
+            <p><b>Age:</b><br>
+                <input type="number" name="age" value="" id="txt" placeholder="Enter age" required> </p>
+            <br>
+            <p><b>Phone Number:</b><br>
+                <input type="tel" name="phone" pattern="[0-9]{10}" id="txt" placeholder="Enter phone num" required> </p>
+            <br>
+            <p><b>Address:</b><br>
+                <textarea name="address" rows="3" cols="37" id="txtarea" placeholder="Enter Address" required></textarea></p>
+            <br>
+            <p><b>Specialization:</b><br>
+                <textarea name="special" rows="3" cols="37" id="txtarea" placeholder="Enter description" required></textarea></p>
+            <br>
+            <button type="submit" name="add" id="submit">Add</button>
+            <a id="list" href="Doctor_list.html ">List?</a>
+        </form>
+    </div>
+</body>
+
+</html>
