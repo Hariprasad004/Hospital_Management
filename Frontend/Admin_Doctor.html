@@ -68,7 +68,12 @@
             background-color: silver;
         }
         
-         ::placeholder {
+         ::placeholder,
+        select:invalid {
+            color: rgb(94, 93, 93);
+        }
+        
+        select option {
             color: black;
         }
         
@@ -76,7 +81,7 @@
             padding-left: 30px;
             font-weight: bold;
             font-size: 20px;
-            color: black;
+            /* color: black; */
         }
     </style>
 </head>
@@ -110,10 +115,12 @@
                 <input type="tel" name="phone" pattern="[0-9]{10}" id="txt" placeholder="Enter phone num" required> </p>
             <br>
             <p><b>Gender:</b><br>
-                <select name="gender" id="txt">
+                <select name="gender" id="txt" required>
+                    <option id="gen" value="" hidden disabled selected>Select gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
-                </select></p>
+                </select>
+            </p>
             <br>
             <p><b>Address:</b><br>
                 <textarea name="address" rows="3" cols="37" id="txtarea" placeholder="Enter Address" required></textarea></p>
