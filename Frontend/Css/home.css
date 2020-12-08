@@ -43,7 +43,7 @@
 }
 
 .book-img {
-    background: url("/Images/book-face.jpg") no-repeat center;
+    background: url("/Frontend/Images/book-face.jpg") no-repeat center;
     background-size: cover;
     position: absolute;
     top: 0;
