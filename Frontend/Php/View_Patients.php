@@ -7,7 +7,7 @@ if(! $conn )
 {
   die('Could not connect');
 }
-$sql = 'SELECT * from patients';
+$sql = 'SELECT * from patient';
 
 // mysqli_select_db('hms');
 $retval = mysqli_query($conn,$sql);
@@ -17,11 +17,11 @@ if(! $retval )
 }
 while($row = mysqli_fetch_assoc($retval))
 {
-    echo "ID          :{$row['id']}  <br> ".
+    echo "ID          :{$row['patientid']}  <br> ".
          "NAME 		  : {$row['name']} <br> ".
          "AGE		  : {$row['age']} <br> ".
+         "PHONE NUM	  : {$row['phoneno']} <br> ".
          "GENDER	  : {$row['gender']} <br> ".
-         "PHONE NUM	  : {$row['phone']} <br> ".
          "ADDRESS	  : {$row['address']} <br> ".
          "DESCRIPTION : {$row['description']} <br> ".
          '<button type="submit" name="delete">Delete</button>'.

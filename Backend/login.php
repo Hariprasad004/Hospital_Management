@@ -1,13 +1,13 @@
 <?php
-	if(isset($_POST['sbtbtn'])){
+	if(isset($_POST['login'])){
 	echo $emailid =$_POST['emailid'];
 	echo $pass=$_POST['pass'];
 
 	$con = mysqli_connect("localhost","root","","hospital");
-	//if($con->connect_error) {
-	//	die("Failed to connect : ".$con->connect_error);
-	//}
-	/*else{
+	if($con->connect_error) {
+		die("Failed to connect : ".$con->connect_error);
+	}
+	else{
 		$stmt =$con->prepare("select * from signup where emailid= ?");
 		$stmt->bind_param("s",$emailid);
 		$stmt->execute();
@@ -17,15 +17,15 @@
 			$data =$stmt_result->fetch_assoc();
 			if($data['pass']===$pass){
 				$error= "<h2>Login Successful</h2>";
-				header("location:htdocs/Hospital_management/home.html");
+				header("location:/Hospital_management/home.html");
 			} else{
 				$error="<h2>Invalid email or password</h2>";
 			}
 
 		} else 
 			$error="<h2>Invalid username or password</h2>";
-}*/
-$query="SELECT * from signup where emailid='$emailid' and Password='$pass'";
+}
+$query="SELECT * from signup where emailid='$emailid' and pass='$pass'";
 $obj=mysqli_num_rows(mysqli_query($con,$query));
 if($obj>0)
 {
