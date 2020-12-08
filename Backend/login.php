@@ -1,9 +1,9 @@
 <?php
-	if(isset($_POST['sbtbtn'])){
+	if(isset($_POST['login_submit'])){
 	echo $emailid =$_POST['emailid'];
 	echo $pass=$_POST['pass'];
 
-	$con = mysqli_connect("localhost","root","","hospital");
+	$con = mysqli_connect("localhost:3307","root","","hospital");
 	//if($con->connect_error) {
 	//	die("Failed to connect : ".$con->connect_error);
 	//}
@@ -25,16 +25,18 @@
 		} else 
 			$error="<h2>Invalid username or password</h2>";
 }*/
-$query="SELECT * from signup where emailid='$emailid' and Password='$pass'";
+$query="SELECT * from signup where emailid='$emailid' and pass='$pass'";
 $obj=mysqli_num_rows(mysqli_query($con,$query));
 if($obj>0)
 {
 	//DASHBOARDPAGE
-	header('Location:home.html');
+	header('Location:/Hospital_management/Frontend/home.html');
 }
 else
 {
-	echo "<h2>Invalid username or password <br> <a href='login.html'>CLICK HERE TO GO BACK</a></h2>";
+	// header('Location:/Hospital_management/Frontend/login.html');
+	echo'$emailid    = 			';
+	echo'$pass';
 }
 }
 ?>
