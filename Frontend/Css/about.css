@@ -5,7 +5,7 @@
 }
 
 .about-section {
-    background: url(/Images/pic.jpg) no-repeat left;
+    background: url(/Frontend/Images/pic.jpg) no-repeat left;
     background-size: 55%;
     /* background-color: #fdfdfd; */
     overflow: hidden;
