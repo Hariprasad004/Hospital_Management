@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 	if(isset($_POST['login'])){
 	echo $emailid =$_POST['emailid'];
 	echo $pass=$_POST['pass'];
@@ -8,6 +9,17 @@
 		die("Failed to connect : ".$con->connect_error);
 	}
 	else{
+=======
+	if(isset($_POST['login_submit'])){
+	echo $emailid =$_POST['emailid'];
+	echo $pass=$_POST['pass'];
+
+	$con = mysqli_connect("localhost:3307","root","","hospital");
+	//if($con->connect_error) {
+	//	die("Failed to connect : ".$con->connect_error);
+	//}
+	/*else{
+>>>>>>> f18cd9b2c67236847e61fd927ab2fccc6d38fc62
 		$stmt =$con->prepare("select * from signup where emailid= ?");
 		$stmt->bind_param("s",$emailid);
 		$stmt->execute();
@@ -24,17 +36,23 @@
 
 		} else 
 			$error="<h2>Invalid username or password</h2>";
+<<<<<<< HEAD
 }
+=======
+}*/
+>>>>>>> f18cd9b2c67236847e61fd927ab2fccc6d38fc62
 $query="SELECT * from signup where emailid='$emailid' and pass='$pass'";
 $obj=mysqli_num_rows(mysqli_query($con,$query));
 if($obj>0)
 {
 	//DASHBOARDPAGE
-	header('Location:home.html');
+	header('Location:/Hospital_management/Frontend/home.html');
 }
 else
 {
-	echo "<h2>Invalid username or password <br> <a href='login.html'>CLICK HERE TO GO BACK</a></h2>";
+	// header('Location:/Hospital_management/Frontend/login.html');
+	echo'$emailid    = 			';
+	echo'$pass';
 }
 }
 ?>
