@@ -4,19 +4,6 @@
     box-sizing: border-box;
 }
 
-.about-section {
-    background: url(/Frontend/Images/pic.jpg) no-repeat left;
-    background-size: 55%;
-    /* background-color: #fdfdfd; */
-    overflow: hidden;
-    box-sizing: border-box;
-    border-radius: 8px;
-    margin-right: 50px;
-    padding-bottom: 30px;
-    margin-top: 1px;
-    margin-left: 30px;
-}
-
 .inner {
     margin-top: 50px;
     width: 55%;
