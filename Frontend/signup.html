@@ -77,17 +77,17 @@
             </div>
             <div class="card-body" id="layout">
                 <form class="form.group" action="/Hospital_management/Backend/signup.php" method="post">
-                <form action="/Hospital_Management/Backend/signup.php" method="POST" class="form.group">
-                    <p><b>Name:</b><br>
-                        <input type="name" name="name" value="" class="form.control" id="txt" placeholder="Enter Full Name" required> <br></p>
-                    <p><b>Email id:</b><br>
-                        <input type="email" name="emailid" class="form.control" id="txt" placeholder="Enter Email" required> <br></p>
-                    <p><b>Password:</b><br>
-                        <input type="password" minlength="8" name="pass" class="form.control" id="password" placeholder="Enter password" required><br></p>
-                    <p><b>Confirm Password:</b><br>
-                        <input type="password" minlength="8" name="cpass" class="form.control" id="cpassword" placeholder="Enter Confirm Password" required> <br></p>
-                    <button type="submit" class="btn btn-primary top" name="signup" id="signup">Signup</button><br>
-                </form>
+                    <form action="/Hospital_Management/Backend/signup.php" method="POST" class="form.group">
+                        <p><b>Name:</b><br>
+                            <input type="name" name="name" value="" class="form.control" id="txt" placeholder="Enter Full Name" required> <br></p>
+                        <p><b>Email id:</b><br>
+                            <input type="email" name="emailid" class="form.control" id="txt" placeholder="Enter Email" required> <br></p>
+                        <p><b>Password:</b><br>
+                            <input type="password" minlength="8" name="pass" class="form.control" id="password" placeholder="Enter password" required><br></p>
+                        <p><b>Confirm Password:</b><br>
+                            <input type="password" minlength="8" name="cpass" class="form.control" id="cpassword" placeholder="Enter Confirm Password" required> <br></p>
+                        <button type="submit" class="btn btn-primary top" name="signup" id="signup">Signup</button><br>
+                    </form>
             </div>
         </div>
     </div>
@@ -97,10 +97,10 @@
             var confirm = document.querySelector('#cpassword').value;
             if (password.length >= 8 && confirm.length >= 8) {
                 if (password == confirm) {
-                    showAlert("Signup successful", "success");
+                    <!-- showAlert("Signup successful","success"); -->
                     return true;
                 } else {
-                    showAlert("Password doesn't match", "error");
+                    showAlert("Password doesn't match","error");
                     return false;
                 }
             }
