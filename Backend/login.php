@@ -4,10 +4,10 @@
 	echo $pass=$_POST['pass'];
 
 	$con = mysqli_connect("localhost:3307","root","","hospital");
-	//if($con->connect_error) {
-	//	die("Failed to connect : ".$con->connect_error);
-	//}
-	/*else{
+	if($con->connect_error) {
+		die("Failed to connect : ".$con->connect_error);
+	}
+	else{
 		$stmt =$con->prepare("select * from signup where emailid= ?");
 		$stmt->bind_param("s",$emailid);
 		$stmt->execute();
@@ -24,7 +24,7 @@
 
 		} else 
 			$error="<h2>Invalid username or password</h2>";
-}*/
+}
 $query="SELECT * from signup where emailid='$emailid' and pass='$pass'";
 $obj=mysqli_num_rows(mysqli_query($con,$query));
 if($obj>0)
@@ -35,8 +35,7 @@ if($obj>0)
 else
 {
 	// header('Location:/Hospital_management/Frontend/login.html');
-	echo'$emailid    = 			';
-	echo'$pass';
+	echo 'Invalid Email ID or Password';
 }
-}
+
 ?>
