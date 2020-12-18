@@ -1,6 +1,6 @@
 <?php
-//if(isset($_POST['sbtbtn']))
-//{
+if(isset($_POST['add']))
+{
     
     echo $name=$_POST['name'];
     echo $age=$_POST['age'];
@@ -18,8 +18,9 @@ if($conn->connect_error){
     $stmt->bind_param("siisss",$name,$age,$phoneno,$gender,$address,$description);
     $stmt->execute();
     echo "value passed";
+    header("location:/Hospital_management/Frontend/patient.html");
     $stmt->close();
     $conn->close();
 }
-
+}
 ?>

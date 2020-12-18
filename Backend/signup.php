@@ -1,6 +1,6 @@
 <?php
-//if(isset($_POST['sbtbtn']))
-//{
+if(isset($_POST['signup']))
+{
     echo $name=$_POST['name'];
     echo $emailid=$_POST['emailid'];
     echo $pass=$_POST['pass'];
@@ -15,7 +15,9 @@ if($conn->connect_error){
     $stmt->bind_param("ssss",$name,$emailid,$pass,$cpass);
     $stmt->execute();
     echo "signup successful...";
+    header("location:/Hospital_management/Frontend/login.html");
     $stmt->close();
     $conn->close();
+}
 }
 ?>
