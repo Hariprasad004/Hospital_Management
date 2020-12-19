@@ -14,7 +14,6 @@ if($conn->connect_error){
     $stmt = $conn->prepare("insert into signup(name,emailid,pass,cpass) values(?, ?, ?, ?)");
     $stmt->bind_param("ssss",$name,$emailid,$pass,$cpass);
     $stmt->execute();
-    echo "signup successful...";
     header("location:/Hospital_management/Frontend/login.html");
     $stmt->close();
     $conn->close();

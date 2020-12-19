@@ -29,8 +29,12 @@ $query="SELECT * from signup where emailid='$emailid' and pass='$pass'";
 $obj=mysqli_num_rows(mysqli_query($con,$query));
 if($obj>0)
 {
-	//DASHBOARDPAGE
-	header('Location:/Hospital_management/Frontend/home.html');
+	if($emailid=="admin@gmail.com"){
+		header('Location:/Hospital_management/Frontend/Admin_Home.html');
+	}
+	else{
+	header('Location:/Hospital_management/Frontend/Home.html');
+	}
 }
 else
 {
