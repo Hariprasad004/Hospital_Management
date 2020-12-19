@@ -1,3 +1,21 @@
+<?php
+$db_name = "hospital";
+$mysql_username = "root";
+$mysql_password = "";
+$server_name = "localhost:3307";
+$conn = mysqli_connect($server_name, $mysql_username, $mysql_password, $db_name);
+
+$query = "select * from patient";
+$result = mysqli_query($conn,$query);
+while($row = mysqli_fetch_array($result)){
+    echo "".$row["name"]." ";
+    echo "".$row["age"]." ";
+    echo "".$row["phoneno"]." ";
+    echo "".$row["gender"]." ";
+    echo "".$row["address"]." ";
+    echo "".$row["description"]."<br>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
