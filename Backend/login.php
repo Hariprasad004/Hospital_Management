@@ -39,7 +39,9 @@ if($obj>0)
 else
 {
 	// header('Location:/Hospital_management/Frontend/login.html');
-	echo 'Invalid Email ID or Password';
+	echo "<script> 
+	showAlert('Invalid email or password','error');
+	</script>";
 }
 
 ?>
