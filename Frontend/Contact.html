@@ -37,7 +37,7 @@
         </nav>
     </div>
     <div class="contact-form">
-        <form  action="/Hospital_Management/Backend/contact.php" method="post">
+        <form action="/Hospital_Management/Backend/contact.php" method="post">
             <u><h1>Contact Us</h1></u>
             <div class="txtb">
                 <strong><label>Full Name :</label></strong>
@@ -51,7 +51,7 @@
 
             <div class="txtb">
                 <strong><label>Phone Number :</label></strong>
-                <input type="text" name="phoneno" value="" placeholder="Enter Your Phone Number" required>
+                <input type="text" pattern="[0-9]{10}" name="phoneno" value="" placeholder="Enter Your Phone Number" required>
             </div>
 
             <div class="txtb">
