@@ -18,6 +18,7 @@ if($conn->connect_error){
     $stmt->bind_param("siisss",$name,$age,$phoneno,$gender,$address,$special);
     $stmt->execute();
     echo "value passed";
+    header("location:/Hospital_management/Frontend/admin_doctor.html");
     $stmt->close();
     $conn->close();
 }
