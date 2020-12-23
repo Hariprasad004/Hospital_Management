@@ -71,15 +71,26 @@ $mysql_username = "root";
 $mysql_password = "";
 $server_name = "localhost:3307";
 $conn = mysqli_connect($server_name, $mysql_username, $mysql_password, $db_name);
-$query = "select * from signup";
+$query = "select * from signup ";
 $result = mysqli_query($conn,$query);
+if(isset($_REQUEST['submit'])){
+    $sql = "DELETE FROM signup WHERE rid= {$_REQUEST['rid']}";
+    if(mysqli_query($conn,$sql)){
+        echo "<script> location.reload(true)</script>";
+        header("refresh:0");
+    }
+    else{
+        echo "Error unable to delete record";
+    }
+}
 echo '<h1 id="details"><u>Receptionists Details</u></h1><br>';
 while($row = mysqli_fetch_array($result)){
     echo "<div class='list'>";
     echo "<label>";
     echo "".$row["name"]." <br>";
     echo "".$row["emailid"]."<br><br>";
-    echo "<input type='button' value='Delete' id='submit'>"; 
+    echo '<form action="" method="POST"><input type="hidden" name="rid" value='.$row['rid'].'>
+    <input type="submit" value="Delete" id="submit" name="submit"></form>'; 
     echo "</label>";
     echo "</div>";
 
