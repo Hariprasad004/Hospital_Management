@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor</title>
     <link rel="stylesheet" href="Css/nav.css">
+    <script type="text/javascript" src="Js/alert.js"></script>
+    <link rel="stylesheet" href="Css/styles.css">
     <style type="text/css">
         * {
             font-family: 'Times New Roman', Times, serif;
@@ -112,7 +114,7 @@
                 <input type="number" name="age" value="" id="txt" placeholder="Enter age" required> </p>
             <br>
             <p><b>Phone Number:</b><br>
-                <input type="text" name="phoneno" pattern="[0-9]{10}" value="" id="txt" placeholder="Enter phone num" required> </p>
+                <input type="text" name="phoneno" class="num" value="" id="txt" placeholder="Enter phone num" required> </p>
             <br>
             <p><b>Gender:</b><br>
                 <select name="gender" id="txt" required>
@@ -132,6 +134,15 @@
             <a id="list" href="Doctor_list.php ">List?</a>
         </form>
     </div>
+    <script type=" text/javascript ">
+        document.getElementById("submit").onclick = function() {
+            var phone = document.querySelector('.num').value;
+            if (isNaN(phone) || phone.length != 10) {
+                showAlert("Enter a valid phone number", "error");
+                return false;
+            }
+        };
+    </script>
 </body>
 
 </html>

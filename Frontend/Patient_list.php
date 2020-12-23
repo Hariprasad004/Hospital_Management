@@ -25,7 +25,7 @@ while($row = mysqli_fetch_array($result)){
     echo "".$row["age"]."<br> ";
     echo "".$row["phoneno"]."<br> ";
     echo "".$row["gender"]."<br> ";
-    echo "".$row["address"]." ";
+    echo "".$row["address"]."<br> ";
     echo "".$row["description"]."<br><br>";
     echo '<form action="" method="POST"><input type="hidden" name="patientid" value='.$row['patientid'].'>
     <input type="submit" value="Delete" id="submit" name="submit"></form>'; 
@@ -86,8 +86,6 @@ while($row = mysqli_fetch_array($result)){
 
 <body>
     <div>
-        <form class="form.group" action="/Hospital_Management/View_Patients.php" method="post">
-        </form>
     </div>
 </body>
 
