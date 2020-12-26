@@ -10,7 +10,7 @@ $result = mysqli_query($conn,$query);
 if(isset($_REQUEST['submit'])){
     $sql = "DELETE FROM patient WHERE patientid= {$_REQUEST['patientid']}";
     if(mysqli_query($conn,$sql)){
-        echo "<script> location.reload(true)</script>";
+        echo "<script> window.close();</script>";
         header("refresh:0");
     }
     else{

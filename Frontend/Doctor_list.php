@@ -63,8 +63,8 @@ $result = mysqli_query($conn,$query);
 if(isset($_REQUEST['submit'])){
     $sql = "DELETE FROM doctor WHERE doctorid= {$_REQUEST['doctorid']}";
     if(mysqli_query($conn,$sql)){
-        echo "<script> location.reload(true)</script>";
-        header("refresh:0");
+        // echo "<script> location.reload(true)</script>";
+        // header("refresh:0");
     }
     else{
         echo "Error unable to delete record";

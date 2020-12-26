@@ -71,7 +71,7 @@ $mysql_username = "root";
 $mysql_password = "";
 $server_name = "localhost:3307";
 $conn = mysqli_connect($server_name, $mysql_username, $mysql_password, $db_name);
-$query = "select * from signup ";
+$query = "select * from signup";
 $result = mysqli_query($conn,$query);
 if(isset($_REQUEST['submit'])){
     $sql = "DELETE FROM signup WHERE rid= {$_REQUEST['rid']}";
@@ -85,19 +85,20 @@ if(isset($_REQUEST['submit'])){
 }
 echo '<h1 id="details"><u>Receptionists Details</u></h1><br>';
 while($row = mysqli_fetch_array($result)){
+    if($row["name"]!='admin'){
     echo "<div class='list'>";
     echo "<label>";
     echo "".$row["name"]." <br>";
     echo "".$row["emailid"]."<br><br>";
-    echo '<form action="" method="POST"><input type="hidden" name="rid" value='.$row['rid'].'>
+    echo '<form action="" method="POST"><input type="hidden" name="emailid" value='.$row['emailid'].'>
     <input type="submit" value="Delete" id="submit" name="submit"></form>'; 
     echo "</label>";
     echo "</div>";
-
+    }
 }
+
+
 ?>
-    <!-- <div>
-    </div> -->
 </body>
 
 </html>
