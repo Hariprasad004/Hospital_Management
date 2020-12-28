@@ -75,7 +75,7 @@ $query = "select * from signup";
 $result = mysqli_query($conn,$query);
 if(isset($_REQUEST['submit'])){
     //$sql = "DELETE FROM doctor WHERE doctorid= {$_REQUEST['doctorid']}";
-    $sql = "DELETE FROM signup WHERE emailid= {$_REQUEST['emailid']}";
+    $sql = "DELETE FROM signup WHERE rid= {$_REQUEST['rid']}";
     if(mysqli_query($conn,$sql)){
         echo "<script> location.reload(true)</script>";
         header("refresh:0");
@@ -91,7 +91,7 @@ while($row = mysqli_fetch_array($result)){
     echo "<label>";
     echo "".$row["name"]." <br>";
     echo "".$row["emailid"]."<br><br>";
-    echo '<form action="" method="POST"><input type="hidden" name="emailid" value='.$row['emailid'].'>
+    echo '<form action="" method="POST"><input type="hidden" name="rid" value='.$row['rid'].'>
     <input type="submit" value="Delete" id="submit" name="submit"></form>'; 
     echo "</label>";
     echo "</div>";
