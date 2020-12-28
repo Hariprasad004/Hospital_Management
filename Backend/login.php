@@ -128,7 +128,7 @@ else
                         <input type="password" name="pass" class="form.control" id="txt" placeholder="Enter password" required><br>
                         <a href="forgot.php" id="forgot">Forgot password?</a> </p>
                     <button type="submit" class="btn btn-primary top" name="login_submit" id="login">Login</button><br>
-                    <a href="signup.html" id="signup">Don't have an account? <u>Sign Up</u></a>
+                    <a href="signup.php" id="signup">Don't have an account? <u>Sign Up</u></a>
                 </form>
             </div>
         </div>
