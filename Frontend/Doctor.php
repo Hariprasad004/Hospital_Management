@@ -62,7 +62,7 @@
                 <li class="active"><a href="#">Doctors</a></li>
                 <li><a href="About.html">About</a></li>
                 <li><a href="Contact.html">Contact Us</a></li>
-                <li><a href="login.html">Logout</a></li>
+                <li><a href="login.php">Logout</a></li>
             </ul>
         </nav>
     </div>

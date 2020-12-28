@@ -76,7 +76,7 @@
                 <h2><b>Sign Up</b></h2>
             </div>
             <div class="card-body" id="layout">
-                <form action="/Hospital_Management/Backend/signup.php" method="POST" class="form.group">
+                <form action="/Hospital_Management/Frontend/signup.php" method="POST" class="form.group">
                     <p><b>Name:</b><br>
                         <input type="name" name="name" value="" class="form.control" id="txt" placeholder="Enter Full Name" required> <br></p>
                     <p><b>Email id:</b><br>
@@ -107,6 +107,43 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <?php
+if(isset($_POST['signup']))
+{
+    $name=$_POST['name'];
+    $emailid=$_POST['emailid'];
+    $pass=$_POST['pass'];
+    $cpass=$_POST['cpass'];
+
+
+$conn= new mysqli("localhost:3307","root","","hospital");
+if($conn->connect_error){
+    die('connection failed :'.$conn->connect_error);
+}else{
+    $stmt =$conn->prepare("select * from signup where emailid= ?");
+    $stmt->bind_param("s",$emailid);
+	$stmt->execute();
+    $stmt_result =$stmt->get_result();
+    if($stmt_result->num_rows > 0){
+        echo '<script type="text/javascript">showAlert("User already exists","error");
+        </script>';
+    }
+    else{
+        $stmt = $conn->prepare("insert into signup(name,emailid,pass,cpass) values(?, ?, ?, ?)");
+        $stmt->bind_param("ssss",$name,$emailid,$pass,$cpass);
+        $stmt->execute();
+        // header("location:/Hospital_management/Frontend/login.html");
+        echo '<script type="text/javascript">showAlert("Signup successful","success");
+        </script>';
+        header("location:/Hospital_management/Frontend/login.php");
+        $stmt->close();
+        $conn->close();
+    }
+}
+}
+?>
 </body>
 
 </html>
+
+

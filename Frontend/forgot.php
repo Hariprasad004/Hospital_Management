@@ -101,22 +101,6 @@ if(isset($_POST['login_submit'])){
             if($query_run){
                 echo "<script type='text/javascript'> showAlert('Password updated, Please login', 'success');
                 </script>";
-                // async sleep(4000);
-                // location.href = 'login.html';
-                // echo "<script type='text/javascript>
-                // function sleep(ms) {
-                //     showAlert('Password updated, Please login', 'success');
-                //     return new Promise(resolve => setTimeout(resolve, ms));
-                // }
-        
-                // async function Tutor() {
-                //     await sleep(4000);
-                //     location.href = 'login.html';
-                // }
-        
-                // Tutor()
-                // sleep(4);
-                // header('Location:/Hospital_management/Frontend/login.html');
             }
             else{
                 echo '<script type="text/javascript"> showAlert("Password not updated", "error"); </script>';

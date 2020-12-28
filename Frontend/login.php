@@ -70,20 +70,65 @@
                 <h2><b>Login</b></h2>
             </div>
             <div class="card-body">
-                <form class="form.group" action="/Hospital_management/Backend/login.php" method="post">
+                <form class="form.group" action="login.php" method="post">
                     <p><b>Email id:</b><br>
                         <input type="email" name="emailid" value="" class="form.control" id="txt" placeholder="Enter Email" required> <br></p>
                     <p><b>Password:</b><br>
                         <input type="password" name="pass" class="form.control" id="txt" placeholder="Enter password" required><br>
                         <a href="forgot.php" id="forgot">Forgot password?</a> </p>
                     <button type="submit" class="btn btn-primary top" name="login_submit" id="login">Login</button><br>
-                    <a href="signup.html" id="signup">Don't have an account? <u>Sign Up</u></a>
+                    <a href="signup.php" id="signup">Don't have an account? <u>Sign Up</u></a>
                 </form>
             </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<scrip src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<?php
+	if(isset($_POST['login_submit'])){
+	 $emailid =$_POST['emailid'];
+	 $pass=$_POST['pass'];
+
+	$con = mysqli_connect("localhost:3307","root","","hospital");
+	if($con->connect_error) {
+		die("Failed to connect : ".$con->connect_error);
+	}
+	else{
+        $stmt =$con->prepare("select * from signup where emailid= ?");
+        $stmt->bind_param("s",$emailid);
+	    $stmt->execute();
+        $stmt_result =$stmt->get_result();
+        if($stmt_result->num_rows > 0){
+            $query="SELECT * from signup where emailid='$emailid' and pass='$pass'";
+            $obj=mysqli_num_rows(mysqli_query($con,$query));
+            // echo "$obj";
+            // $result = mysqli_query($con,$query);
+            if($obj>0)
+            {
+	
+            	if($emailid=="admin@gmail.com"){
+		            header('Location:/Hospital_management/Frontend/Admin_Home.html');
+	            }
+	            else{
+		            header('Location:/Hospital_management/Frontend/Home.html');
+	            }
+            }
+            else
+            {
+	            // header('Location:/Hospital_management/Frontend/login.html');
+	            echo "<script> 
+	            showAlert('Invalid email or password','error');
+	            </script>";
+            }
+        }
+        else{
+            echo "<script> 
+            showAlert('User does not exists','error');
+            </script>";
+        }
+    }
+}
+?>
 
 </body>
 
