@@ -74,7 +74,8 @@ $conn = mysqli_connect($server_name, $mysql_username, $mysql_password, $db_name)
 $query = "select * from signup";
 $result = mysqli_query($conn,$query);
 if(isset($_REQUEST['submit'])){
-    $sql = "DELETE FROM signup WHERE rid= {$_REQUEST['rid']}";
+    //$sql = "DELETE FROM doctor WHERE doctorid= {$_REQUEST['doctorid']}";
+    $sql = "DELETE FROM signup WHERE emailid= {$_REQUEST['emailid']}";
     if(mysqli_query($conn,$sql)){
         echo "<script> location.reload(true)</script>";
         header("refresh:0");
