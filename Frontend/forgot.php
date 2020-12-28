@@ -30,11 +30,14 @@
         }
         
         .container {
-            padding-top: 200px;
+            padding-top: 100px;
         }
         
         .card-body {
             background-color: aquamarine;
+        }
+        a{
+            margin-left: 135px;
         }
     </style>
 </head>
@@ -47,23 +50,26 @@
                     <p><b>Email id:</b><br>
                         <input type="email" name="emailid" value="" class="form.control" id="email" placeholder="Enter Email" required> <br></p>
                         <p><b>Password:</b><br>
-                        <input type="password" name="pass" value="" class="form.control" id="pass" placeholder="Enter password" required> <br></p>
-                        <p><b>Confrim password</b><br>
-                        <input type="password" name="cpass" value="" class="form.control" id="cpass" placeholder="Enter confrim passwod" required> <br></p>
-                    <button type="submit" class="btn btn-primary top" name="login_submit" id="submit">Update</button>
+                        <input type="password" minlength="8" name="pass" value="" class="form.control" id="pass" placeholder="Enter password" required> <br></p>
+                        <p><b>Confirm password</b><br>
+                        <input type="password" minlength="8" name="cpass" value="" class="form.control" id="cpass" placeholder="Enter confrim passwod" required> <br></p>
+                    <button type="submit" class="btn btn-primary top" name="login_submit" id="submit">Update</button><br>
+                    <a href="login.html" id="signup"><u><b>Login?</b></u></a>
                 </form>
             </div>
         </div>
     </div>
     <script type=" text/javascript ">
         document.getElementById("submit").onclick = function() {
-            var email = document.querySelector('#txt').value;
-            if (email == "") {
-                showAlert("Enter the valid email", "error");
-                return false;
-            } else {
-                showAlert("Email has been sent", "success");
-                return true;
+            var password = document.querySelector('#pass').value;
+            var confirm = document.querySelector('#cpass').value;
+            if (password.length >= 8 && confirm.length >= 8) {
+                if (password == confirm) {
+                    return true;
+                } else {
+                    showAlert("Password doesn't match", "error");
+                    return false;
+                }
             }
         };
     </script>
@@ -82,16 +88,45 @@ $conn = mysqli_connect($server_name, $mysql_username, $mysql_password,$db_name);
 //$db = mysqli_select_db($conn,$db_name);
 if(isset($_POST['login_submit'])){
     $emailid = $_POST['emailid'];
-    $query = "UPDATE signup SET pass='$_POST[pass]',cpass='$_POST[cpass]' where emailid='$_POST[emailid]' ";
-    $query_run = mysqli_query($conn,$query);
-    if($query_run){
-        echo '<script type="text/javascript"> alert("Data Updated") </script>';
-    }
-    else{
-        echo '<script type="text/javascript"> alert("Data Not Updated") </script>';
+    $pass=$_POST['pass'];
+    $confirm=$_POST['cpass'];
+    if($pass == $confirm){
+        $stmt =$conn->prepare("select * from signup where emailid= ?");
+        $stmt->bind_param("s",$emailid);
+	    $stmt->execute();
+        $stmt_result =$stmt->get_result();
+        if($stmt_result->num_rows > 0){
+    	    $query = "UPDATE signup SET pass='$_POST[pass]',cpass='$_POST[cpass]' where emailid='$_POST[emailid]' ";
+            $query_run = mysqli_query($conn,$query);
+            if($query_run){
+                echo "<script type='text/javascript'> showAlert('Password updated, Please login', 'success');
+                </script>";
+                // async sleep(4000);
+                // location.href = 'login.html';
+                // echo "<script type='text/javascript>
+                // function sleep(ms) {
+                //     showAlert('Password updated, Please login', 'success');
+                //     return new Promise(resolve => setTimeout(resolve, ms));
+                // }
+        
+                // async function Tutor() {
+                //     await sleep(4000);
+                //     location.href = 'login.html';
+                // }
+        
+                // Tutor()
+                // sleep(4);
+                // header('Location:/Hospital_management/Frontend/login.html');
+            }
+            else{
+                echo '<script type="text/javascript"> showAlert("Password not updated", "error"); </script>';
+            }
+        } else{
+            echo '<script type="text/javascript"> showAlert("There are no user with this email id", "error"); </script>';
+        }
+    } else{
+        echo '<script type="text/javascript"> showAlert("Password does not match", "error"); </script>';
     }
 }
-
-
 ?>
 
