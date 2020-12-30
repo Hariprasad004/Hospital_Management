@@ -77,7 +77,7 @@ if(isset($_REQUEST['submit'])){
     //$sql = "DELETE FROM doctor WHERE doctorid= {$_REQUEST['doctorid']}";
     $sql = "DELETE FROM signup WHERE rid= {$_REQUEST['rid']}";
     if(mysqli_query($conn,$sql)){
-        echo "<script> location.reload(true)</script>";
+        // echo "<script> location.reload(true)</script>";
         header("refresh:0");
     }
     else{
@@ -86,7 +86,7 @@ if(isset($_REQUEST['submit'])){
 }
 echo '<h1 id="details"><u>Receptionists Details</u></h1><br>';
 while($row = mysqli_fetch_array($result)){
-    if($row["name"]!='admin'){
+    if($row["name"]!='Admin'){
     echo "<div class='list'>";
     echo "<label>";
     echo "".$row["name"]." <br>";

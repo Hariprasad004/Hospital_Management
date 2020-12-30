@@ -10,7 +10,11 @@
         #signup:hover {
             cursor: pointer;
         }
-        
+        #login{
+            margin-left: 139px;
+            margin-top: 0;
+        }
+
         #signup {
             margin-left: 125px;
             margin-top: 0;
@@ -86,6 +90,7 @@
                     <p><b>Confirm Password:</b><br>
                         <input type="password" minlength="8" name="cpass" class="form.control" id="cpassword" placeholder="Enter Confirm Password" required> <br></p>
                     <button type="submit" class="btn btn-primary top" name="signup" id="signup">Signup</button><br>
+                    <a href="login.php" id="login"><b><u>Login</u></b></a>
                 </form>
             </div>
         </div>
@@ -133,9 +138,9 @@ if($conn->connect_error){
         $stmt->bind_param("ssss",$name,$emailid,$pass,$cpass);
         $stmt->execute();
         // header("location:/Hospital_management/Frontend/login.html");
-        echo '<script type="text/javascript">showAlert("Signup successful","success");
+        echo '<script type="text/javascript">showAlert("Signup successful, Please login","success");
         </script>';
-        header("location:/Hospital_management/Frontend/login.php");
+        // header("location:/Hospital_management/Frontend/login.php");
         $stmt->close();
         $conn->close();
     }
